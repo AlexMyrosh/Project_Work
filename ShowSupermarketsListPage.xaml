@@ -1,0 +1,56 @@
+﻿<Page x:Class="Project_Work.ShowSupermarketsListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_Work"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="ShowManufacturesList" Height="600" Width="900" Background="#063852">
+
+    <Grid Height="584" VerticalAlignment="Top">
+        <Menu VerticalAlignment="Top" Background="#011a27" Foreground="White">
+            <MenuItem Header="Главное Меню" Click="Main_Menu"></MenuItem>
+            <MenuItem Header="Продукт">
+                <MenuItem Header="Добавить" Click="Add_Product_Menu"/>
+                <MenuItem Header="Удалить" Click="Remove_Product_Menu"/>
+            </MenuItem>
+
+            <MenuItem Header="Реализатор" >
+                <MenuItem Header="Добавить" Click="Add_Supermarket_Menu"/>
+                <MenuItem Header="Удалить" Click="Remove_Supermarket_Menu"/>
+            </MenuItem>
+
+            <MenuItem Header="Производитель" >
+                <MenuItem Header="Добавить" Click="Add_Manufacture_Menu"/>
+                <MenuItem Header="Удалить" Click="Remove_Manufacture_Menu"/>
+            </MenuItem>
+
+            <MenuItem Header="Списки" >
+                <MenuItem Header="Продукты" Click="Show_ProductsList_Menu"/>
+                <MenuItem Header="Реализаторы"/>
+                <MenuItem Header="Производители" Click="Show_ManufacturesList_Menu"/>
+            </MenuItem>
+            <MenuItem Header="Выход" Click="Exit"></MenuItem>
+        </Menu>
+
+        <Border MinWidth="300" Margin="50,74,50,50" Background="White" Padding="10" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"></DropShadowEffect>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Реализаторы" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
+
+                <DataGrid AutoGenerateColumns="False" x:Name="SupermarketsGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="50"/>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="150"/>
+                        <DataGridTextColumn Binding="{Binding AddressString}" Header="Адресс" Width="300"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Page>
